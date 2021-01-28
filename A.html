@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function get(a,c) {
+            console.log(a);  //function a() { }
+            var a = 123;
+            console.log(a);  //123
+            console.log(c);  //function c() { }
+            function a() {
+                if(false) {
+                    var d = 678;
+                }
+            };
+            console.log(d); //undefined
+            console.log(b); //undefined
+            var b = function(){}
+            console.log(b); //function(){}
+            function c() {} 
+            console.log(c);  //function c() { }
+        }
+        get(1,2)
+
+       /* 
+        1.创建ao对象 AO{}
+        2.找形参和变量声明 将变量和形参名当作 AO对象的属性名 值为undefined
+        3.实参形参相统一
+        4.在函数体找函数声明 值赋予函数体
+          4.1 函数声明  function fn() {}
+          4.2 函数表达式 fn = function() {}
+        */
+
+       /*
+        AO{
+            a undefined =>     1      =>    function a() { }
+            c undefined =>     2      =>    function c() { }
+            d undefined => undefined  =>
+            b undefined => undefined  =>
+        }
+        */
+    </script>
+</body>
+</html>
